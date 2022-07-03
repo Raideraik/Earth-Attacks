@@ -16,8 +16,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        
         Vector3 direction = _target.position - transform.position;
         transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
+
+        
 
         if (Vector3.Distance(transform.position, _target.position) <= 0.2f)
         {
@@ -28,13 +31,17 @@ public class EnemyMovement : MonoBehaviour
     private void GetNextWayPoint() 
     {
 
+        
         if (_wavePointIndex >= WayPoints.Points.Length-1)
         {
-            gameObject.SetActive(false);
+           gameObject.SetActive(false);
+            _wavePointIndex = 0;
+            _target = WayPoints.Points[_wavePointIndex];
             return;
         }
 
         _wavePointIndex++;
         _target = WayPoints.Points[_wavePointIndex];
+       
     }
 }
