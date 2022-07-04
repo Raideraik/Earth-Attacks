@@ -14,6 +14,12 @@ public class EnemyMovement : MonoBehaviour
         _target = WayPoints.Points[0];
     }
 
+    private void OnEnable()
+    {
+        _wavePointIndex = 0;
+        _target = WayPoints.Points[_wavePointIndex];
+    }
+
     private void Update()
     {
         
