@@ -9,12 +9,16 @@ public class Node : MonoBehaviour
     [SerializeField] private Color _notEnoughMoney;
     [SerializeField] private Vector3 _positionOffset;
 
-    public GameObject Turret;
+    private GameObject _turret;
+    private TurretBlueprint _turretBlueprint;
+    private bool _isUpgraded;
 
     private Renderer _renderer;
     private Color _startColor;
     private BuildManager _buildManager;
 
+    public TurretBlueprint Blueprint => _turretBlueprint;
+    public bool IsUpgraded => _isUpgraded;
 
     private void Start()
     {
@@ -28,18 +32,18 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (!_buildManager.CanBuild)
-            return;
 
-        if (Turret != null)
+        if (_turret != null)
         {
-            Debug.Log("Can't build there! - TODO: Display on screen");
+            _buildManager.SelectNode(this);
             return;
         }
 
+        if (!_buildManager.CanBuild)
+            return;
 
 
-        _buildManager.BuildTurretOn(this);
+        BuildTurret(_buildManager.GetTurretToBuild());
 
     }
 
@@ -61,6 +65,61 @@ public class Node : MonoBehaviour
     private void OnMouseExit()
     {
         _renderer.material.color = _startColor;
+    }
+
+    private void BuildTurret(TurretBlueprint blueprint)
+    {
+        // GameObject turretToBuild = _buildManager.GetTurretToBuild();
+        if (PlayerStats.Money < blueprint.Cost)
+        {
+            Debug.Log("Not Enough money");
+            return;
+        }
+
+        PlayerStats.Money -= blueprint.Cost;
+
+        GameObject turret = (GameObject)Instantiate(blueprint.Prefab, GetBuildPosition(), Quaternion.identity);
+        _turret = turret;
+
+        _turretBlueprint = blueprint;
+
+        GameObject effect = (GameObject)Instantiate(_buildManager.BuildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+
+    public void UpgradeTurret()
+    {
+        // GameObject turretToBuild = _buildManager.GetTurretToBuild();
+        if (PlayerStats.Money < _turretBlueprint.UpgradeCost)
+        {
+            Debug.Log("Not Enough money to Upgrade");
+            return;
+        }
+
+        PlayerStats.Money -= _turretBlueprint.UpgradeCost;
+
+        Destroy(_turret);
+
+        GameObject turret = (GameObject)Instantiate(_turretBlueprint.UpgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        _turret = turret;
+
+
+        GameObject effect = (GameObject)Instantiate(_buildManager.BuildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+
+        _isUpgraded = true;
+
+    }
+
+    public void SellTurret() 
+    {
+        PlayerStats.Money += _turretBlueprint.GetSellAmount();
+
+        GameObject effect = (GameObject)Instantiate(_buildManager.SellEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+
+        Destroy(_turret);
+        _turretBlueprint = null;
     }
 
     public Vector3 GetBuildPosition()

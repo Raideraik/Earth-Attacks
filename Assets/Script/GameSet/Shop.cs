@@ -7,9 +7,11 @@ public class Shop : MonoBehaviour
 {
     //[SerializeField] private GameObject[] _standartTurretPrefab;
     [SerializeField] private TurretBlueprint[] _turretBlueprint;
-    [SerializeField] private TMP_Text[] _costText;
 
     private BuildManager _buildManager;
+
+    [SerializeField] private TMP_Text[] _costText;
+
 
     private void Start()
     {

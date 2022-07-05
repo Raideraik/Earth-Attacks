@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
+    [SerializeField] private GameOver _gameOverUI;
 
     private bool _gameEnded = false;
+
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
 
     private void Update()
     {
@@ -15,9 +22,19 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    private void EndGame() 
+    private void EndGame()
     {
         _gameEnded = true;
-        Debug.Log("Game Over");
+
+        _gameOverUI.gameObject.SetActive(true);
+
+        StartCoroutine(StopTime());
+    }
+
+    IEnumerator StopTime() 
+    {
+        yield return new WaitForSeconds(1f);
+
+        Time.timeScale = 0;
     }
 }

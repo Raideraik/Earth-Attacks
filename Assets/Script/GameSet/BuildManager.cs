@@ -5,13 +5,18 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour
 {
     [SerializeField] private GameObject _buildEffect;
+    [SerializeField] private GameObject _sellEffect;
+    [SerializeField] private NodeUI _nodeUI;
 
     private TurretBlueprint _turretTobuild;
+    private Node _selectedNode;
 
     public static BuildManager Instance;
     public bool CanBuild { get { return _turretTobuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= _turretTobuild.Cost; } }
 
+    public GameObject BuildEffect => _buildEffect;
+    public GameObject SellEffect => _sellEffect;
 
     private void Awake()
     {
@@ -30,28 +35,38 @@ public class BuildManager : MonoBehaviour
     }*/
 
 
-    public void SelectTurretToBuild(TurretBlueprint turret) 
+    public void DeselectNode() 
     {
-        _turretTobuild = turret;
+        _selectedNode = null;
+        _nodeUI.Hide();
     }
 
-    public void BuildTurretOn(Node node) 
+    public TurretBlueprint GetTurretToBuild() 
     {
-        // GameObject turretToBuild = _buildManager.GetTurretToBuild();
-        if (PlayerStats.Money < _turretTobuild.Cost)
+        return _turretTobuild;
+    }
+
+    public void SelectNode(Node node) 
+    {
+        if (_selectedNode == node)
         {
-            Debug.Log("Not Enough money");
+            DeselectNode();
             return;
         }
 
-        PlayerStats.Money -= _turretTobuild.Cost;
+        _selectedNode = node;
+        _turretTobuild = null;
 
-        GameObject turret = (GameObject)Instantiate(_turretTobuild.Prefab, node.GetBuildPosition(), Quaternion.identity);
+        _nodeUI.SetTarget(node);
+    }
 
-        node.Turret = turret;
 
-        GameObject effect = (GameObject)Instantiate(_buildEffect, node.GetBuildPosition(), Quaternion.identity);
+    public void SelectTurretToBuild(TurretBlueprint turret) 
+    {
+        _turretTobuild = turret;
+        _selectedNode = null;
 
-        Destroy(effect, 5f);
+        DeselectNode();
+
     }
 }
