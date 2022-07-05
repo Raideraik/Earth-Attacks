@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-
+    private Enemy _enemy;
     private Transform _target;
     private int _wavePointIndex = 0;
 
     private void Start()
     {
+        _enemy = GetComponent<Enemy>();
         _target = WayPoints.Points[0];
     }
 
@@ -24,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
     {
         
         Vector3 direction = _target.position - transform.position;
-        transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
+        transform.Translate(direction.normalized * _enemy.Speed * Time.deltaTime, Space.World);
 
         
 
@@ -32,6 +33,8 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWayPoint();
         }
+
+        _enemy.ReturnSpeed();
     }
 
     private void GetNextWayPoint() 

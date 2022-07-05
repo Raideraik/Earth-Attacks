@@ -133,4 +133,4 @@ MonoBehaviour:
   _speed: 30
   _explosionRadius: 10
   _timeOfEffects: 5
-  _damage: 3
+  _damage: 20
