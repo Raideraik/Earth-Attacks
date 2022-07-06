@@ -9,11 +9,11 @@ public class Node : MonoBehaviour
     [SerializeField] private Color _notEnoughMoney;
     [SerializeField] private Vector3 _positionOffset;
 
+    private Renderer _renderer;
     private GameObject _turret;
     private TurretBlueprint _turretBlueprint;
     private bool _isUpgraded;
 
-    private Renderer _renderer;
     private Color _startColor;
     private BuildManager _buildManager;
 
@@ -22,7 +22,12 @@ public class Node : MonoBehaviour
 
     private void Start()
     {
-        _renderer = GetComponent<Renderer>();
+        if (gameObject.GetComponentInChildren<Renderer>().tag == "Node")
+        {
+        _renderer = gameObject.GetComponentInChildren<Renderer>();
+
+        }
+
         _startColor = _renderer.material.color;
         _buildManager = BuildManager.Instance;
     }
@@ -111,7 +116,7 @@ public class Node : MonoBehaviour
 
     }
 
-    public void SellTurret() 
+    public void SellTurret()
     {
         PlayerStats.Money += _turretBlueprint.GetSellAmount();
 
