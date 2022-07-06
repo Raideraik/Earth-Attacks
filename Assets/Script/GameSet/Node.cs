@@ -22,11 +22,7 @@ public class Node : MonoBehaviour
 
     private void Start()
     {
-        if (gameObject.GetComponentInChildren<Renderer>().tag == "Node")
-        {
-        _renderer = gameObject.GetComponentInChildren<Renderer>();
-
-        }
+        _renderer = transform.GetComponent<Renderer>();
 
         _startColor = _renderer.material.color;
         _buildManager = BuildManager.Instance;
