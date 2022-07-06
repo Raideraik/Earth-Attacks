@@ -100,7 +100,6 @@ MonoBehaviour:
   _hoverColor: {r: 0, g: 0, b: 0, a: 0}
   _notEnoughMoney: {r: 1, g: 0, b: 0, a: 0}
   _positionOffset: {x: 0, y: 1.4, z: 0}
-  Turret: {fileID: 0}
 --- !u!65 &5072626898163461860
 BoxCollider:
   m_ObjectHideFlags: 0

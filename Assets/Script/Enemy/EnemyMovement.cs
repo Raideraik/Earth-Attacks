@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] private int _turnSpeed;
+
     private Enemy _enemy;
     private Transform _target;
     private int _wavePointIndex = 0;
@@ -23,11 +25,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        
+
+
         Vector3 direction = _target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * _turnSpeed).eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         transform.Translate(direction.normalized * _enemy.Speed * Time.deltaTime, Space.World);
 
-        
 
         if (Vector3.Distance(transform.position, _target.position) <= 0.2f)
         {
@@ -37,11 +42,11 @@ public class EnemyMovement : MonoBehaviour
         _enemy.ReturnSpeed();
     }
 
-    private void GetNextWayPoint() 
+    private void GetNextWayPoint()
     {
 
-        
-        if (_wavePointIndex >= WayPoints.Points.Length-1)
+
+        if (_wavePointIndex >= WayPoints.Points.Length - 1)
         {
             EndPath();
             return;
@@ -49,10 +54,10 @@ public class EnemyMovement : MonoBehaviour
 
         _wavePointIndex++;
         _target = WayPoints.Points[_wavePointIndex];
-       
+
     }
 
-    private void EndPath() 
+    private void EndPath()
     {
         PlayerStats.Lives--;
 

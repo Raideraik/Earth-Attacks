@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76aa48063a7c9eb4e9ed502b7a276475, type: 3}
   m_Name: Tower4
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4422688803759658113, guid: 37f5751d65d90b241af00b820f929ffd, type: 3}
-  _upgradedPrefab: {fileID: 4422688803759658113, guid: 739f184ac3a8a8848a4d25fc540c4a1c,
+  _prefab: {fileID: 9030316871655995414, guid: 37f5751d65d90b241af00b820f929ffd, type: 3}
+  _upgradedPrefab: {fileID: 3241730113260898480, guid: f9fb0c3e64721fc4bb4c2136270070f4,
     type: 3}
   _cost: 500
   _upgradeCost: 1500

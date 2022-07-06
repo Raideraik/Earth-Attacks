@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PauseMenu))]
 public class GameMaster : MonoBehaviour
 {
     [SerializeField] private GameOver _gameOverUI;
 
     private bool _gameEnded = false;
 
+    public bool GameEnded => _gameEnded;
 
     private void Start()
     {
