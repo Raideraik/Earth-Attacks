@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private int _levelNumber;
+    [SerializeField] private SceneFader _sceneFader;
 
     public void RestartLevel() 
     {
-        SceneManager.LoadScene(_levelNumber);
+        _sceneFader.FadeTo(_levelNumber);
     }
 
     public void ExitLevelToMenu()
     {
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+        _sceneFader.FadeTo(0);
     }
 }

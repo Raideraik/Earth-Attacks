@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [SerializeField] private SceneFader _sceneFader;
 
     public void NewGame() 
     {
-        SceneManager.LoadScene(1);
+       _sceneFader.FadeTo(1);
     }
 
     public void ChooseLevel(int _levelNumber) 
     {
-        SceneManager.LoadScene(_levelNumber);
+        _sceneFader.FadeTo(_levelNumber);
     }
 
     public void ExitGame()

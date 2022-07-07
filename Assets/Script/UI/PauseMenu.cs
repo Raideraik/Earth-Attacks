@@ -6,6 +6,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private SceneFader _sceneFader;
     private GameMaster _gameMaster;
 
     private void Start()
