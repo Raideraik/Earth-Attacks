@@ -8,6 +8,7 @@ public class GameMaster : MonoBehaviour
 {
     [SerializeField] private GameOver _gameOverUI;
     [SerializeField] private TMP_Text _gameOverText;
+    [SerializeField] private int _nextLevelNumber;
 
     private Spawner _spawner;
     private bool _gameEnded = false;
@@ -21,12 +22,12 @@ public class GameMaster : MonoBehaviour
 
     private void OnEnable()
     {
-        _spawner.AllEnemysDied += Victory;
+        _spawner.AllEnemysDied += LevelVictory;
     }
 
     private void OnDisable()
     {
-        _spawner.AllEnemysDied -= Victory;
+        _spawner.AllEnemysDied -= LevelVictory;
     }
 
     private void Update()
@@ -37,13 +38,14 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    private void Victory() 
+    private void LevelVictory() 
     {
         _gameEnded = true;
 
         _gameOverText.text = "Victory";
         _gameOverText.color = Color.green;
         _gameOverUI.gameObject.SetActive(true);
+        PlayerPrefs.SetInt("levelReached", _nextLevelNumber);
 
     }
 

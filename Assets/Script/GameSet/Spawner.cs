@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class Spawner : ObjectPool
@@ -11,6 +12,7 @@ public class Spawner : ObjectPool
     [SerializeField] private float _secondsBetweenSpawn;
     [SerializeField] private int _countOfWaves;
     [SerializeField] private int _countEnemyInWave;
+    [SerializeField] private Slider _slider;
 
     public static int _enemyAlive = 0;
     public event UnityAction AllEnemysDied;
@@ -22,10 +24,16 @@ public class Spawner : ObjectPool
     {
         Initialize(_enemyTemplates);
         InvokeRepeating("EndLevel", 0f, 1f);
+        _slider.maxValue = _secondsBetweenSpawn;
     }
 
     private void Update()
     {
+        if (_countOfWaves == _waveIndex)
+            _slider.value = _slider.maxValue;
+        else
+            _slider.value = _elapsedTime;
+
         _elapsedTime += Time.deltaTime;
         if (_countOfWaves >= _waveIndex+1)
         {
@@ -33,8 +41,10 @@ public class Spawner : ObjectPool
             {
                 _waveIndex++;
                 StartCoroutine(SetWave());
+                _elapsedTime = 0;
             }
         }
+        
     }
     IEnumerator SetWave()
     {
@@ -43,7 +53,6 @@ public class Spawner : ObjectPool
 
             if (TryGetObject(out GameObject enemy))
             {
-                _elapsedTime = 0;
 
                 int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
 
