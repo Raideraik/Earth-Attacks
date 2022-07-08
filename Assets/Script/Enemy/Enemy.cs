@@ -37,11 +37,11 @@ public class Enemy : MonoBehaviour
     {
         GameObject effect = (GameObject)Instantiate(_deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
+        Spawner._enemyAlive--;
 
 
         Died?.Invoke();
         gameObject.SetActive(false);
-        Spawner._enemyAlive--;
         PlayerStats.Money += _value;
     }
 

@@ -9,6 +9,8 @@ public class Node : MonoBehaviour
     [SerializeField] private Color _notEnoughMoney;
     [SerializeField] private Vector3 _positionOffset;
 
+    [SerializeField] private bool _BuildProhibition;
+
     private Renderer _renderer;
     private GameObject _turret;
     private TurretBlueprint _turretBlueprint;
@@ -50,6 +52,9 @@ public class Node : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (_BuildProhibition)
+            return;
+
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
@@ -71,6 +76,9 @@ public class Node : MonoBehaviour
     private void BuildTurret(TurretBlueprint blueprint)
     {
         // GameObject turretToBuild = _buildManager.GetTurretToBuild();
+        if (_BuildProhibition)
+            return;
+
         if (PlayerStats.Money < blueprint.Cost)
         {
             Debug.Log("Not Enough money");

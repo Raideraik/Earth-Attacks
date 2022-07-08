@@ -102,7 +102,7 @@ MonoBehaviour:
   _speed: 50
   _explosionRadius: 0
   _timeOfEffects: 2
-  _damage: 10
+  _damage: 5
 --- !u!135 &-7987423895162476594
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -16,4 +16,4 @@ MonoBehaviour:
   _upgradedPrefab: {fileID: 2911322984788504724, guid: ff2581e74bcd2df4d97e2d94981f8469,
     type: 3}
   _cost: 100
-  _upgradeCost: 500
+  _upgradeCost: 1000

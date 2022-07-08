@@ -9,12 +9,21 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private int _startMoney = 400;
     [SerializeField] private int _startLives = 20;
+    [SerializeField] private int _income = 10;
+    [SerializeField] private float _timeOfIncome = 5;
 
 
     private void Start()
     {
         Money = _startMoney;
         Lives = _startLives;
+
+        InvokeRepeating("AddMoney", 5f, _timeOfIncome);
+    }
+
+    private void AddMoney() 
+    {
+        Money += _income;
     }
 
 }

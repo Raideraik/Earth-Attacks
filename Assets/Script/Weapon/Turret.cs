@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
+[RequireComponent(typeof (AudioSource))]
 public class Turret : MonoBehaviour
 {
 
@@ -26,8 +28,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private Light _impactLight;
     private ParticleSystem _impactEffect;
     private LineRenderer _lineRenderer;
-    
 
+    private AudioSource _audio;
 
     private float _fireCountdown = 0f;
     private Transform _target;
@@ -35,6 +37,8 @@ public class Turret : MonoBehaviour
 
     private void Start()
     {
+        _audio = GetComponent<AudioSource>();
+
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         if (_useLaser)
         {
@@ -114,6 +118,8 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
+        _audio.Play();
+
         GameObject bulletGO = (GameObject)Instantiate(_bulletTemplate, _firePoint.position, _firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
