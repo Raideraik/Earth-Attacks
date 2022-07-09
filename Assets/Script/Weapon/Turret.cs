@@ -29,6 +29,7 @@ public class Turret : MonoBehaviour
     private ParticleSystem _impactEffect;
     private LineRenderer _lineRenderer;
 
+
     private AudioSource _audio;
 
     private float _fireCountdown = 0f;

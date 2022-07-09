@@ -22,6 +22,7 @@ public class Spawner : ObjectPool
 
     private void Start()
     {
+        _enemyAlive = _countEnemyInWave * _countOfWaves;
         Initialize(_enemyTemplates);
         InvokeRepeating("EndLevel", 0f, 1f);
         _slider.maxValue = _secondsBetweenSpawn;
@@ -65,7 +66,6 @@ public class Spawner : ObjectPool
 
     private void SetEnemy(GameObject enemy, Vector3 spawnPoint)
     {
-        _enemyAlive++;
         enemy.SetActive(true);
         enemy.transform.position = spawnPoint;
     }
