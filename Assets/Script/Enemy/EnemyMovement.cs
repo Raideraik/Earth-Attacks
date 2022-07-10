@@ -17,26 +17,22 @@ public class EnemyMovement : MonoBehaviour
     {
         _enemy = GetComponent<Enemy>();
         if (_isFlying)
-        {
             _target = FlyingWayPoints.FlyingPoints[0];
-        }
+
         else
-        {
             _target = WayPoints.Points[0];
-        }
+
     }
 
     private void OnEnable()
     {
         _wavePointIndex = 0;
         if (_isFlying)
-        {
             _target = FlyingWayPoints.FlyingPoints[_wavePointIndex];
-        }
+
         else
-        {
             _target = WayPoints.Points[_wavePointIndex];
-        }
+
     }
 
     private void Update()
@@ -74,13 +70,11 @@ public class EnemyMovement : MonoBehaviour
 
         _wavePointIndex++;
         if (_isFlying)
-        {
             _target = FlyingWayPoints.FlyingPoints[_wavePointIndex];
-        }
+
         else
-        {
             _target = WayPoints.Points[_wavePointIndex];
-        }
+
         //_target = WayPoints.Points[_wavePointIndex];
 
     }
@@ -93,13 +87,11 @@ public class EnemyMovement : MonoBehaviour
         gameObject.SetActive(false);
         _wavePointIndex = 0;
         if (_isFlying)
-        {
             _target = FlyingWayPoints.FlyingPoints[_wavePointIndex];
-        }
+
         else
-        {
             _target = WayPoints.Points[_wavePointIndex];
-        }
+
         //_target = WayPoints.Points[_wavePointIndex];
     }
 }
