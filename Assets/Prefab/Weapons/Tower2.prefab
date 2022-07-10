@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 644601884441453201}
   - component: {fileID: 444929197}
   - component: {fileID: 1591879289080303061}
+  - component: {fileID: 4645776656651876958}
   m_Layer: 0
   m_Name: Tower2
   m_TagString: Untagged
@@ -125,6 +126,13 @@ MonoBehaviour:
   _slowRate: 0.5
   _impactOffset: 0
   _impactLight: {fileID: 0}
+  _useBlock: 0
+  _charges: 100
+  _chargeSpeed: 10
+  _useMelee: 0
+  _meleeDamage: 0
+  _usePoweUP: 0
+  _fireUpRate: 10
 --- !u!95 &444929197
 Animator:
   serializedVersion: 4
@@ -242,6 +250,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &4645776656651876958
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644601884441453202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 1.79, z: 0}
 --- !u!1 &671584006373061874
 GameObject:
   m_ObjectHideFlags: 0

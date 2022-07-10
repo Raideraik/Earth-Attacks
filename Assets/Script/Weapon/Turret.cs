@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-[RequireComponent(typeof (AudioSource))]
+[RequireComponent(typeof(AudioSource))]
 public class Turret : MonoBehaviour
 {
 
@@ -18,6 +18,9 @@ public class Turret : MonoBehaviour
     [Header("Use Bullets")]
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _fireRate = 1f;
+    private float _maxFireRate;
+    private bool _poweredUp = false;
+    public bool PowerUp => _poweredUp;
 
 
     [Header("Use Laser")]
@@ -28,6 +31,21 @@ public class Turret : MonoBehaviour
     [SerializeField] private Light _impactLight;
     private ParticleSystem _impactEffect;
     private LineRenderer _lineRenderer;
+
+    [Header("Block")]
+    [SerializeField] private bool _useBlock = false;
+    [SerializeField] private float _charges = 100;
+    [SerializeField] private float _chargeSpeed = 10;
+    private float _maxCharges;
+
+    [Header("Melee Attack")]
+    [SerializeField] private bool _useMelee = false;
+    [SerializeField] private float _meleeDamage;
+
+    [Header("Power UP")]
+    [SerializeField] private bool _usePoweUP = false;
+    [SerializeField] private float _fireUpRate = 20;
+
 
 
     private AudioSource _audio;
@@ -46,6 +64,20 @@ public class Turret : MonoBehaviour
             _lineRenderer = GetComponent<LineRenderer>();
             _impactEffect = GetComponentInChildren<ParticleSystem>();
         }
+        _maxFireRate = _fireRate;
+
+    }
+
+    private void ReturnFireRate() 
+    {
+        _poweredUp = false;
+        _fireRate = _maxFireRate;
+    }
+
+    public void SetFireRate(float fireRateUp) 
+    {
+        _poweredUp = true;
+        _fireRate *= fireRateUp;
     }
 
     private void UpdateTarget()
@@ -93,9 +125,28 @@ public class Turret : MonoBehaviour
         }
         LockOnTarget();
 
+
         if (_useLaser)
         {
             Laser();
+        }
+        else if (_useBlock)
+        {
+            Block();
+        }
+        else if (_usePoweUP)
+        {
+            PowerUP();
+        }
+        else if (_useMelee)
+        {
+            
+            if (_fireCountdown <= 0f)
+            {
+                MeleeAttack();
+                _fireCountdown = 1f / _fireRate;
+            }
+            _fireCountdown -= Time.deltaTime;
         }
         else
         {
@@ -103,6 +154,7 @@ public class Turret : MonoBehaviour
             {
                 Shoot();
                 _fireCountdown = 1f / _fireRate;
+               ReturnFireRate();
             }
             _fireCountdown -= Time.deltaTime;
         }
@@ -149,7 +201,39 @@ public class Turret : MonoBehaviour
 
         _impactEffect.transform.rotation = Quaternion.LookRotation(direction);
     }
+    private void Block()
+    {
+        if (_target != null && _charges > 0)
+        {
+            _enemy.Slow(1);
+            _charges -= Time.deltaTime * _chargeSpeed;
+        }
+        else if (_charges <= 0)
+        {
+            //Выводить что разряжена
+            _charges += Time.deltaTime * _chargeSpeed;
+        }
+    }
 
+    private void PowerUP() 
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, _range);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.TryGetComponent(out Turret turret))
+            {
+                if (!turret._poweredUp)
+                {
+                turret.SetFireRate(_fireUpRate);
+                }
+            }
+        }
+    } 
+
+    private void MeleeAttack()
+    {
+        _enemy.TakeDamage(_meleeDamage);
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
