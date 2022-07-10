@@ -327,7 +327,7 @@ MonoBehaviour:
   _useMelee: 0
   _meleeDamage: 0
   _usePoweUP: 1
-  _fireUpRate: 10
+  _fireUpRate: 2
 --- !u!1 &6851052239582614864
 GameObject:
   m_ObjectHideFlags: 0

@@ -133,6 +133,8 @@ MonoBehaviour:
   _meleeDamage: 0
   _usePoweUP: 0
   _fireUpRate: 10
+  _useFlying: 1
+  _flyingEnemyTag: FlyingEnemy
 --- !u!95 &444929197
 Animator:
   serializedVersion: 4

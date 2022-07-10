@@ -46,7 +46,9 @@ public class Turret : MonoBehaviour
     [SerializeField] private bool _usePoweUP = false;
     [SerializeField] private float _fireUpRate = 20;
 
-
+    [Header("Flying")]
+    [SerializeField] private bool _useFlying = false;
+    [SerializeField] private string _flyingEnemyTag = "FlyingEnemy";
 
     private AudioSource _audio;
 
@@ -82,7 +84,22 @@ public class Turret : MonoBehaviour
 
     private void UpdateTarget()
     {
+        if (_useFlying)
+        {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(_flyingEnemyTag);
+            Targeting(enemies);
+        }
+        else
+        {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(_enemyTag);
+            Targeting(enemies);
+        }
+        
+
+    }
+
+    private void Targeting(GameObject[] enemies) 
+    {
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
@@ -105,8 +122,8 @@ public class Turret : MonoBehaviour
         {
             _target = null;
         }
-
     }
+
 
     private void Update()
     {

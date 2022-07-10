@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private int _turnSpeed;
+    [SerializeField] private bool _isFlying = false;
+    public bool IsFlying => _isFlying;
 
     private Enemy _enemy;
     private Transform _target;
@@ -14,18 +16,31 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         _enemy = GetComponent<Enemy>();
-        _target = WayPoints.Points[0];
+        if (_isFlying)
+        {
+            _target = FlyingWayPoints.FlyingPoints[0];
+        }
+        else
+        {
+            _target = WayPoints.Points[0];
+        }
     }
 
     private void OnEnable()
     {
         _wavePointIndex = 0;
-        _target = WayPoints.Points[_wavePointIndex];
+        if (_isFlying)
+        {
+            _target = FlyingWayPoints.FlyingPoints[_wavePointIndex];
+        }
+        else
+        {
+            _target = WayPoints.Points[_wavePointIndex];
+        }
     }
 
     private void Update()
     {
-
 
         Vector3 direction = _target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -51,9 +66,22 @@ public class EnemyMovement : MonoBehaviour
             EndPath();
             return;
         }
+        else if (_isFlying && _wavePointIndex >= FlyingWayPoints.FlyingPoints.Length - 1)
+        {
+            EndPath();
+            return;
+        }
 
         _wavePointIndex++;
-        _target = WayPoints.Points[_wavePointIndex];
+        if (_isFlying)
+        {
+            _target = FlyingWayPoints.FlyingPoints[_wavePointIndex];
+        }
+        else
+        {
+            _target = WayPoints.Points[_wavePointIndex];
+        }
+        //_target = WayPoints.Points[_wavePointIndex];
 
     }
 
@@ -64,6 +92,14 @@ public class EnemyMovement : MonoBehaviour
 
         gameObject.SetActive(false);
         _wavePointIndex = 0;
-        _target = WayPoints.Points[_wavePointIndex];
+        if (_isFlying)
+        {
+            _target = FlyingWayPoints.FlyingPoints[_wavePointIndex];
+        }
+        else
+        {
+            _target = WayPoints.Points[_wavePointIndex];
+        }
+        //_target = WayPoints.Points[_wavePointIndex];
     }
 }

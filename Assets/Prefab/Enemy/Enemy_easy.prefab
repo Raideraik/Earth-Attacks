@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: -8561347452147326783}
   m_Layer: 0
   m_Name: Enemy_easy
-  m_TagString: Enemy
+  m_TagString: FlyingEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4945,6 +4945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnSpeed: 10
+  _isFlying: 1
 --- !u!114 &3125488123842662743
 MonoBehaviour:
   m_ObjectHideFlags: 0
