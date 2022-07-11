@@ -5,18 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] private int _levelNumber;
     [SerializeField] private SceneFader _sceneFader;
 
-    public void RestartLevel()
+    public void RestartLevel(int restartLevelNumber)
     {
         Time.timeScale = 1f;
-        _sceneFader.FadeTo(_levelNumber);
+        _sceneFader.FadeTo(restartLevelNumber);
     }
 
     public void ExitLevelToMenu()
     {
         Time.timeScale = 1f;
         _sceneFader.FadeTo(0);
+    }
+
+    public void NextLevel(int nextLevelNumber) 
+    {
+        Time.timeScale = 1f;
+        _sceneFader.FadeTo(nextLevelNumber);
     }
 }

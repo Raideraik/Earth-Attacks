@@ -9,6 +9,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] private GameOver _gameOverUI;
     [SerializeField] private TMP_Text _gameOverText;
     [SerializeField] private int _nextLevelNumber;
+    [SerializeField] private GameObject _nextLevelButton;
 
     private Spawner _spawner;
     private bool _gameEnded = false;
@@ -45,6 +46,7 @@ public class GameMaster : MonoBehaviour
         _gameOverText.text = "Victory";
         _gameOverText.color = Color.green;
         _gameOverUI.gameObject.SetActive(true);
+        _nextLevelButton.SetActive(true);
         PlayerPrefs.SetInt("levelReached", _nextLevelNumber);
 
     }
@@ -56,9 +58,11 @@ public class GameMaster : MonoBehaviour
         _gameOverUI.gameObject.SetActive(true);
         _gameOverText.text = "GAME OVER";
         _gameOverText.color = Color.red;
+        _nextLevelButton.SetActive(false);
 
         StartCoroutine(StopTime());
     }
+
 
     IEnumerator StopTime() 
     {

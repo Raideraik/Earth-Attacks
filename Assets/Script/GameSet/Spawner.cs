@@ -10,6 +10,7 @@ public class Spawner : ObjectPool
     [SerializeField] private GameObject[] _enemyTemplates;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _secondsBetweenSpawn;
+    [SerializeField] private bool _endless;
     [SerializeField] private int _countOfWaves;
     [SerializeField] private int _countEnemyInWave;
     [SerializeField] private Slider _slider;
@@ -22,6 +23,11 @@ public class Spawner : ObjectPool
 
     private void Start()
     {
+        if (_endless)
+        {
+            _countOfWaves = int.MaxValue;
+        }
+
         _enemyAlive = _countEnemyInWave * _countOfWaves;
         Initialize(_enemyTemplates);
         InvokeRepeating("EndLevel", 0f, 1f);

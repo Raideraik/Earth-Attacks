@@ -9,6 +9,33 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a7fe19ca98b49fe4694f677cee94185c
   - enabled: 1
+    path: Assets/Scenes/Level1(CutScene).unity
+    guid: 01c0a27a3939da04d9088f6177c67b1a
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Level2(CutScene).unity
+    guid: 7d9d6c4ac61dbbf4fa7f0007bce525cc
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 3845b5899e8a41c4f8aed8dc253faed1
+  - enabled: 1
+    path: Assets/Scenes/Level3(CutScene).unity
+    guid: 216f14ea593ff5f42964e9402d2394d2
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: c7f926e4d2d596a40a8e00d694ad9214
+  - enabled: 1
+    path: Assets/Scenes/Level4(CutScene).unity
+    guid: b82a1d2e09c340549ae8d33bd77bcad0
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: f78cbaac89eef5947a38499b601ecfea
+  - enabled: 1
+    path: Assets/Scenes/Level5(CutScene).unity
+    guid: 7a77243817ff2f4479aa0b1d12cf9eca
+  - enabled: 1
+    path: Assets/Scenes/Ending(CutScene).unity
+    guid: edda8e43ad5d82f4785121ace26b6f95
   m_configObjects: {}

@@ -825,11 +825,15 @@ MonoBehaviour:
   _slowRate: 0.5
   _impactOffset: 0
   _impactLight: {fileID: 0}
-  _useBlock: 0
+  _useBlock: 1
   _charges: 100
   _chargeSpeed: 10
   _useMelee: 1
-  _meleeDamage: 5
+  _meleeDamage: 20
+  _usePoweUP: 0
+  _fireUpRate: 20
+  _useFlying: 0
+  _flyingEnemyTag: FlyingEnemy
 --- !u!95 &-1902858493680874566
 Animator:
   serializedVersion: 4

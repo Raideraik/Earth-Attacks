@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnSpeed: 10
+  _isFlying: 0
 --- !u!114 &1358191298731442320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7efabd700610e4468a7d55ff20097e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  _health: 500
   _speed: 10
   _value: 200
   _deathEffect: {fileID: 3975313320292579094, guid: fe8aafcf1eab0e942b03f30f5abca529,
