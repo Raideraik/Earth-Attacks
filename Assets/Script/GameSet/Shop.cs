@@ -7,11 +7,18 @@ public class Shop : MonoBehaviour
 {
     //[SerializeField] private GameObject[] _standartTurretPrefab;
     [SerializeField] private TurretBlueprint[] _turretBlueprint;
+    [SerializeField] private GameObject _descriptionBG;
+    [SerializeField] private TMP_Text _descriptionText;
 
     private BuildManager _buildManager;
 
     [SerializeField] private TMP_Text[] _costText;
 
+
+    private void OnMouseEnter()
+    {
+        _descriptionBG.SetActive(true);
+    }
 
     private void Start()
     {
@@ -25,5 +32,7 @@ public class Shop : MonoBehaviour
     public void SelectTurret(int number) 
     {
             _buildManager.SelectTurretToBuild(_turretBlueprint[number]);
+        _descriptionText.text = _turretBlueprint[number].Description;
+
     }
 }

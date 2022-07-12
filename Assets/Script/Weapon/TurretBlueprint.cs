@@ -9,12 +9,15 @@ public class TurretBlueprint:ScriptableObject
     [SerializeField] private GameObject _upgradedPrefab;
     [SerializeField] private int _cost;
     [SerializeField] private int _upgradeCost;
+    [SerializeField] private string _description;
 
     public GameObject Prefab => _prefab;
     public GameObject UpgradedPrefab => _upgradedPrefab;
 
     public int Cost => _cost;
     public int UpgradeCost => _upgradeCost;
+
+    public string Description => _description;
 
     public int GetSellAmount() 
     {

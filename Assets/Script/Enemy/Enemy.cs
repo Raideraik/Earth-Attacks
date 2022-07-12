@@ -10,7 +10,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private int _value;
     [SerializeField] private GameObject _deathEffect;
+    [SerializeField] private float _chanceOfSpawn = 100f;
+    private double _weight;
 
+    public double Weight => _weight;
+    public float ChanceOfSpawn => _chanceOfSpawn;
     public float Speed => _speed;
     public float Health => _health;
 
@@ -31,6 +35,11 @@ public class Enemy : MonoBehaviour
     {
         _health = _startHealth;
         _speed = _startSpeed;
+    }
+
+    public void SetWeight(double weight)
+    {
+        _weight = weight;
     }
 
     private void Die()

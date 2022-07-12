@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -21,12 +22,15 @@ public class Spawner : ObjectPool
     private float _elapsedTime = 0;
     private int _waveIndex = 0;
 
+
+
     private void Start()
     {
         if (_endless)
         {
             _countOfWaves = int.MaxValue;
         }
+
 
         _enemyAlive = _countEnemyInWave * _countOfWaves;
         Initialize(_enemyTemplates);
@@ -61,7 +65,7 @@ public class Spawner : ObjectPool
             if (TryGetObject(out GameObject enemy))
             {
 
-                int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
+                int spawnPointNumber = UnityEngine.Random.Range(0, _spawnPoints.Length);
 
                 SetEnemy(enemy, _spawnPoints[spawnPointNumber].position);
 
@@ -83,5 +87,4 @@ public class Spawner : ObjectPool
             AllEnemysDied?.Invoke();
         }
     }
-
 }
