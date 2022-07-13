@@ -50,7 +50,7 @@ MonoBehaviour:
   _speed: 40
   _explosionRadius: 15
   _timeOfEffects: 5
-  _damage: 25
+  _damage: 40
 --- !u!1 &8223995155144546825
 GameObject:
   m_ObjectHideFlags: 0

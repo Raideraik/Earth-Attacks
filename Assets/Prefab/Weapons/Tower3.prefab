@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 1066899110540096352}
   - component: {fileID: 327991549621526806}
   - component: {fileID: 5858142885581118302}
+  - component: {fileID: 2257319339655337920}
   m_Layer: 0
   m_Name: Tower3
   m_TagString: Untagged
@@ -159,6 +160,15 @@ MonoBehaviour:
   _slowRate: 0.5
   _impactOffset: 1
   _impactLight: {fileID: 0}
+  _useBlock: 0
+  _charges: 100
+  _chargeSpeed: 10
+  _useMelee: 0
+  _meleeDamage: 0
+  _usePoweUP: 0
+  _fireUpRate: 20
+  _useFlying: 0
+  _flyingEnemyTag: FlyingEnemy
 --- !u!95 &327991549621526806
 Animator:
   serializedVersion: 4
@@ -276,6 +286,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &2257319339655337920
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066899110540096353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1443766
+  m_Center: {x: 0, y: 1.5955949, z: 0}
 --- !u!1 &2567695905333841506
 GameObject:
   m_ObjectHideFlags: 0

@@ -10116,7 +10116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9030316871655995414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0033283234, y: 0.5, z: 0.6322962}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10150,6 +10150,15 @@ MonoBehaviour:
   _slowRate: 0.25
   _impactOffset: 1
   _impactLight: {fileID: 3078795939216094503}
+  _useBlock: 0
+  _charges: 100
+  _chargeSpeed: 10
+  _useMelee: 0
+  _meleeDamage: 0
+  _usePoweUP: 0
+  _fireUpRate: 20
+  _useFlying: 0
+  _flyingEnemyTag: FlyingEnemy
 --- !u!120 &9030316871655995409
 LineRenderer:
   m_ObjectHideFlags: 0
