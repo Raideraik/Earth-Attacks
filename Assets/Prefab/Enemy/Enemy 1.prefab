@@ -117,7 +117,8 @@ MonoBehaviour:
   _value: 100
   _deathEffect: {fileID: 3975313320292579094, guid: fe8aafcf1eab0e942b03f30f5abca529,
     type: 3}
-  _chanceOfSpawn: 50
+  _maxChanceOfSpawn: 1
+  _minChanceOfSpawn: 0
 --- !u!135 &7949368723733301454
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class Spawner : ObjectPool
 {
 
-    [SerializeField] private GameObject[] _enemyTemplates;
+    [SerializeField] private Enemy[] _enemyTemplates;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _secondsBetweenSpawn;
     [SerializeField] private bool _endless;

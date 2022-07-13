@@ -2,10 +2,7 @@ fileFormatVersion: 2
 guid: 30ee70478c80a2e40a5b53359ae15998
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable:
-  - first:
-      74: -1498010087492872569
-    second: CINEMA_4D_Main
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -15,8 +12,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mat.1
-    second: {fileID: 2100000, guid: 9f60435339f0e6e4ebd8bba42167269c, type: 2}
+      name: TeslaBlack
+    second: {fileID: 2100000, guid: 5395a7dd7a532db4a9e0465fb1e9d70b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

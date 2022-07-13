@@ -150,6 +150,8 @@ MonoBehaviour:
   _value: 100
   _deathEffect: {fileID: 3975313320292579094, guid: fe8aafcf1eab0e942b03f30f5abca529,
     type: 3}
+  _maxChanceOfSpawn: 50
+  _minChanceOfSpawn: 0
 --- !u!65 &-8561347452147326783
 BoxCollider:
   m_ObjectHideFlags: 0
