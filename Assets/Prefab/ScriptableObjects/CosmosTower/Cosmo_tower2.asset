@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76aa48063a7c9eb4e9ed502b7a276475, type: 3}
+  m_Name: Cosmo_tower2
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 2717847223486653700, guid: b817e416c0b0bc84781e4b0d37cca8ea, type: 3}
+  _upgradedPrefab: {fileID: 2149757889539584142, guid: 090cfffdec65afc4f82b5e495d599297,
+    type: 3}
+  _cost: 150
+  _upgradeCost: 1000
+  _description: 
