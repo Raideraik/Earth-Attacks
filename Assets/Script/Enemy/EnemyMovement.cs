@@ -57,7 +57,7 @@ public class EnemyMovement : MonoBehaviour
     {
 
 
-        if (_wavePointIndex >= WayPoints.Points.Length - 1)
+        if (!_isFlying && _wavePointIndex >= WayPoints.Points.Length - 1)
         {
             EndPath();
             return;

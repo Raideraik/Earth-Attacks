@@ -64,7 +64,7 @@ MonoBehaviour:
   _health: 500
   _speed: 5
   _value: 500
-  _deathEffect: {fileID: 3975313320292579094, guid: fe8aafcf1eab0e942b03f30f5abca529,
+  _deathEffect: {fileID: 3975313320292579094, guid: 8622a90d59a40b641a23f427b5fe88e7,
     type: 3}
 --- !u!1 &1228591172388434277
 GameObject:

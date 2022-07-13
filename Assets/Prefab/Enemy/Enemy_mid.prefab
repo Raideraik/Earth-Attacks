@@ -65,7 +65,7 @@ MonoBehaviour:
   _health: 500
   _speed: 10
   _value: 200
-  _deathEffect: {fileID: 3975313320292579094, guid: fe8aafcf1eab0e942b03f30f5abca529,
+  _deathEffect: {fileID: 3975313320292579094, guid: 0793b8fca317c2c4d8a77c0f97e77f92,
     type: 3}
 --- !u!135 &1358191298731442322
 SphereCollider:
