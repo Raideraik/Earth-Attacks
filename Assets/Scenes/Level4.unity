@@ -6100,7 +6100,7 @@ PrefabInstance:
     - target: {fileID: 7941477760528235757, guid: 4bd63f08c6cdaf6428b3a9741cdacd6c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63f08c6cdaf6428b3a9741cdacd6c, type: 3}
@@ -11523,7 +11523,7 @@ MonoBehaviour:
   _turretBlueprint:
   - {fileID: 11400000, guid: 4df823d7c4aee4f498bc48babe091007, type: 2}
   - {fileID: 11400000, guid: 03fbbb9f670822d46b60cf97f70a640d, type: 2}
-  - {fileID: 11400000, guid: ea3b234fc26964e4ca9571a91a87a365, type: 2}
+  - {fileID: 11400000, guid: bf6b5fb6ec5618640a0374c2fc4ea763, type: 2}
   _descriptionBG: {fileID: 670425686}
   _descriptionText: {fileID: 670425685}
   _costText:

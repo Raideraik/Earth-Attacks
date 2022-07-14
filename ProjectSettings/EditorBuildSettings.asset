@@ -36,6 +36,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level5(CutScene).unity
     guid: 7a77243817ff2f4479aa0b1d12cf9eca
   - enabled: 1
-    path: Assets/Scenes/Ending(CutScene).unity
-    guid: edda8e43ad5d82f4785121ace26b6f95
+    path: Assets/Scenes/Level5.unity
+    guid: 337b53a8bed3c8347a0c785e741b3788
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 285496d40c56f1141809c9295e90239d
+  - enabled: 1
+    path: Assets/Scenes/Level_Endless.unity
+    guid: 1ac0482ee4f56c04487574fad1a947da
   m_configObjects: {}
