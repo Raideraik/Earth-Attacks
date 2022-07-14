@@ -46,6 +46,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private bool _usePoweUP = false;
     [SerializeField] private float _fireUpRate = 20;
 
+
     [Header("Flying")]
     [SerializeField] private bool _useFlying = false;
     [SerializeField] private string _flyingEnemyTag = "FlyingEnemy";
