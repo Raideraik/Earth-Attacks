@@ -36,7 +36,9 @@ public class ObjectPool : MonoBehaviour
 
     protected bool TryGetObject(out GameObject result) 
     {
-        result = _pool.FirstOrDefault(p => p.activeSelf == false);
+        int randomIndex = Random.Range(1, _capacity);
+        //result = _pool.FirstOrDefault(p => p.activeSelf == false);
+        result = _pool.Where(p => p.activeSelf == false).ElementAtOrDefault(randomIndex);
 
         return result != null;
     }

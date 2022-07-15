@@ -17,6 +17,8 @@ public class MainMenuUI : MonoBehaviour
         _sceneFader.FadeTo(_levelNumber);
     }
 
+
+
     public void ExitGame()
     {
         Application.Quit();

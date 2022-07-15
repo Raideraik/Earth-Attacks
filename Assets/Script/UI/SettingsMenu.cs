@@ -12,6 +12,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private Slider _volume;
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
+    [SerializeField] private TMP_Dropdown _qualityDropdown;
     private Resolution[] _resolutions;
 
 
@@ -39,6 +40,8 @@ public class SettingsMenu : MonoBehaviour
         _resolutionDropdown.value = currentResolutionIndex;
         _resolutionDropdown.RefreshShownValue();
 
+        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("Quality"));
+        _qualityDropdown.value = QualitySettings.GetQualityLevel();
 
 
 
@@ -57,6 +60,12 @@ public class SettingsMenu : MonoBehaviour
     {
         _audioMixer.SetFloat("Volume", volume);
         PlayerPrefs.SetFloat("Volume", volume);
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt("Quality", qualityIndex);
     }
 
     public void SetFullScreen(bool isFullscreen) 

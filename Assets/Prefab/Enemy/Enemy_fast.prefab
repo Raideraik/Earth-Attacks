@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a284de6656df187408a96ddfb2b306d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turnSpeed: 20
+  _turnSpeed: 5
   _isFlying: 0
 --- !u!114 &1794378097500810084
 MonoBehaviour:
@@ -1010,6 +1010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DirtEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549713743495311979, guid: 8e993312b98f50240975bae325391666,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e993312b98f50240975bae325391666, type: 3}

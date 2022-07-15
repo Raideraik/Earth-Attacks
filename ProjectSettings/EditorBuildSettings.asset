@@ -40,7 +40,7 @@ EditorBuildSettings:
     guid: 337b53a8bed3c8347a0c785e741b3788
   - enabled: 1
     path: Assets/Scenes/Ending.unity
-    guid: 285496d40c56f1141809c9295e90239d
+    guid: ac56b141ba0853e40bae2fc4adaedb9b
   - enabled: 1
     path: Assets/Scenes/Level_Endless.unity
     guid: 1ac0482ee4f56c04487574fad1a947da

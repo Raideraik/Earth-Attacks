@@ -12,14 +12,27 @@ public class LevelSelectroUI : MonoBehaviour
 
     private void Start()
     {
-        int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+        InitializeLevels();
+
+    }
+
+    public void ResetLevels()
+    {
+        PlayerPrefs.SetInt("levelReached", 0);
+        InitializeLevels();
+    }
+
+    private void InitializeLevels() 
+    {
+        int levelReached = PlayerPrefs.GetInt("levelReached");
 
         for (int i = 0; i < _levelButtons.Length; i++)
         {
-            if (i+1 > levelReached)
+            if (i + 1 > levelReached)
                 _levelButtons[i].interactable = false;
         }
     }
+
     public void SelectLevel(int number)
     {
         _sceneFader.FadeTo(number);
