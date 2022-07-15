@@ -82,7 +82,7 @@ public class EnemyMovement : MonoBehaviour
     private void EndPath()
     {
         PlayerStats.Lives--;
-        Spawner._enemyAlive--;
+        _enemy.Dying();
 
         gameObject.SetActive(false);
         _wavePointIndex = 0;

@@ -26,9 +26,9 @@ public class LevelSelectroUI : MonoBehaviour
     {
         int levelReached = PlayerPrefs.GetInt("levelReached");
 
-        for (int i = 0; i < _levelButtons.Length; i++)
+        for (int i = 1; i < _levelButtons.Length; i++)
         {
-            if (i + 1 > levelReached)
+            if (i  > levelReached)
                 _levelButtons[i].interactable = false;
         }
     }

@@ -28,16 +28,16 @@ public class NodeUI : MonoBehaviour
 
         if (!_target.IsUpgraded)
         {
-            _upgradeText.text = "Upgrade \n" + _target.Blueprint.UpgradeCost.ToString();
+            _upgradeText.text = "Улучшить \n" + _target.Blueprint.UpgradeCost.ToString();
             _upgradeButton.interactable = true;
 
         }
         else
         {
-            _upgradeText.text = "Maximum";
+            _upgradeText.text = "Улучшено";
             _upgradeButton.interactable = false;
         }
-        _sellText.text = "Sell \n" + _target.Blueprint.GetSellAmount().ToString();
+        _sellText.text = "Продать \n" + _target.Blueprint.GetSellAmount().ToString();
 
 
         _uI.gameObject.SetActive(true);
@@ -52,7 +52,7 @@ public class NodeUI : MonoBehaviour
     {
         _target.UpgradeTurret();
         _buildManager.DeselectNode();
-        _upgradeText.text = "Upgrade /n" + _target.Blueprint.UpgradeCost.ToString();
+        _upgradeText.text = "Улучшить /n" + _target.Blueprint.UpgradeCost.ToString();
 
     }
 

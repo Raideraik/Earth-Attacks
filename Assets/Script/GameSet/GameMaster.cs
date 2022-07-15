@@ -8,11 +8,12 @@ public class GameMaster : MonoBehaviour
 {
     [SerializeField] private GameOver _gameOverUI;
     [SerializeField] private TMP_Text _gameOverText;
-    [SerializeField] private int _nextLevelNumber;
+    [SerializeField] private int _levelCompleted;
     [SerializeField] private GameObject _nextLevelButton;
 
     private Spawner _spawner;
     private bool _gameEnded = false;
+
 
     public bool GameEnded => _gameEnded;
     private void Awake()
@@ -47,7 +48,7 @@ public class GameMaster : MonoBehaviour
         _gameOverText.color = Color.green;
         _gameOverUI.gameObject.SetActive(true);
         _nextLevelButton.SetActive(true);
-        PlayerPrefs.SetInt("levelReached", _nextLevelNumber);
+        PlayerPrefs.SetInt("levelReached", _levelCompleted);
 
     }
 

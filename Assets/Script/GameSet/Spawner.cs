@@ -16,23 +16,26 @@ public class Spawner : ObjectPool
     [SerializeField] private int _countEnemyInWave;
     [SerializeField] private Slider _slider;
 
-    public static int _enemyAlive = 0;
+    public static int EnemyAlive;
     public event UnityAction AllEnemysDied;
 
     private float _elapsedTime = 0;
     private int _waveIndex = 0;
 
+   // public int Debug;
 
 
     private void Start()
     {
+        EnemyAlive = 0;
+
         if (_endless)
         {
             _countOfWaves = int.MaxValue;
         }
 
 
-        _enemyAlive = _countEnemyInWave * _countOfWaves;
+        //EnemyAlive = _countEnemyInWave * _countOfWaves;
         Initialize(_enemyTemplates);
         InvokeRepeating("EndLevel", 0f, 1f);
         _slider.maxValue = _secondsBetweenSpawn;
@@ -40,13 +43,16 @@ public class Spawner : ObjectPool
 
     private void Update()
     {
+        //   EndLevel();
+       // Debug = EnemyAlive;
+
         if (_countOfWaves == _waveIndex)
             _slider.value = _slider.maxValue;
         else
             _slider.value = _elapsedTime;
 
         _elapsedTime += Time.deltaTime;
-        if (_countOfWaves >= _waveIndex+1)
+        if (_countOfWaves >= _waveIndex + 1)
         {
             if (_elapsedTime > _secondsBetweenSpawn)
             {
@@ -55,7 +61,8 @@ public class Spawner : ObjectPool
                 _elapsedTime = 0;
             }
         }
-        
+
+
     }
     IEnumerator SetWave()
     {
@@ -76,13 +83,14 @@ public class Spawner : ObjectPool
 
     private void SetEnemy(GameObject enemy, Vector3 spawnPoint)
     {
+        EnemyAlive++;
         enemy.SetActive(true);
         enemy.transform.position = spawnPoint;
     }
 
     private void EndLevel()
     {
-        if (_countOfWaves == _waveIndex && _enemyAlive <= 0)
+        if (_countOfWaves == _waveIndex && EnemyAlive <= 0)
         {
             AllEnemysDied?.Invoke();
         }

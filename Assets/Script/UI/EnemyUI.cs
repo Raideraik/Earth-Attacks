@@ -37,5 +37,7 @@ public class EnemyUI : MonoBehaviour
     private void OnDied()
     {
         _healthSlider.value = _healthSlider.maxValue;
+        PlayerStats.Money += _enemy.Value;
+        Spawner.EnemyAlive--;
     }
 }

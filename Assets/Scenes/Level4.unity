@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
+  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6320,11 +6320,12 @@ MonoBehaviour:
   - {fileID: 3404712119917867926, guid: 6d092c5ad00fecb4d8150a5877fb713c, type: 3}
   _spawnPoints:
   - {fileID: 443724980}
-  _secondsBetweenSpawn: 30
+  _secondsBetweenSpawn: 25
   _endless: 0
-  _countOfWaves: 10
+  _countOfWaves: 5
   _countEnemyInWave: 5
   _slider: {fileID: 1128415710}
+  Debug: 0
 --- !u!114 &1019718327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6389,7 +6390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameOverUI: {fileID: 659990328}
   _gameOverText: {fileID: 2036706547}
-  _nextLevelNumber: 9
+  _levelCompleted: 4
   _nextLevelButton: {fileID: 250661660}
 --- !u!114 &1019718331
 MonoBehaviour:
@@ -6433,7 +6434,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 517ae983fb8711d47b03c2ee5a864023,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7bfeb2a91c25fef48a7394ef77061fb6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 99667164282444c42923a586eaf99d96, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -10268,12 +10269,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cf5b1773eb31e3b41bef965d1399da06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cf5b1773eb31e3b41bef965d1399da06,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -79.34
+      value: -85.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cf5b1773eb31e3b41bef965d1399da06,
         type: 3}

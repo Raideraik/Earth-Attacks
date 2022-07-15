@@ -160,6 +160,15 @@ MonoBehaviour:
   _slowRate: 0.5
   _impactOffset: 1
   _impactLight: {fileID: 0}
+  _useBlock: 0
+  _charges: 100
+  _chargeSpeed: 10
+  _useMelee: 0
+  _meleeDamage: 0
+  _usePoweUP: 0
+  _fireUpRate: 20
+  _useFlying: 0
+  _flyingEnemyTag: FlyingEnemy
 --- !u!95 &-1443744102414052955
 Animator:
   serializedVersion: 4
@@ -189,8 +198,9 @@ AudioSource:
   m_GameObject: {fileID: 1066899110540096353}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 517ae983fb8711d47b03c2ee5a864023,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: cd0393691d8c05440afe9d1d3b7d98e7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

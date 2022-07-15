@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
 
     public float Speed => _speed;
     public float Health => _health;
+    public int Value => _value;
 
     public event UnityAction<float> HealthChanged;
     public event UnityAction Died;
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDisable()
     {
-        _health = _startHealth;
+       // _health = _startHealth;
         _speed = _startSpeed;
     }
 
@@ -37,20 +38,22 @@ public class Enemy : MonoBehaviour
     {
         GameObject effect = (GameObject)Instantiate(_deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
-        Spawner._enemyAlive--;
 
+        Dying();
+    }
 
+    public void Dying() 
+    {
         Died?.Invoke();
         gameObject.SetActive(false);
-        PlayerStats.Money += _value;
     }
 
     public void TakeDamage(float damage)
     {
-        _health -= damage;
-        HealthChanged?.Invoke(_health);
-        if (_health <= 0)
+        _startHealth -= damage;
+        if (_startHealth <= 0)
             Die();
+        HealthChanged?.Invoke(_startHealth);
 
     }
 

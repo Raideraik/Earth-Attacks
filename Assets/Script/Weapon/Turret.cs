@@ -133,7 +133,7 @@ public class Turret : MonoBehaviour
             if (_useLaser)
                 if (_lineRenderer.enabled)
                 {
-
+                    _audio.Stop();
                     _lineRenderer.enabled = false;
                     _impactEffect.Stop();
                     _impactLight.enabled = false;
@@ -147,14 +147,19 @@ public class Turret : MonoBehaviour
         if (_useLaser)
         {
             Laser();
+
         }
         else if (_useBlock)
         {
             Block();
+            _audio.Play();
+
         }
         else if (_usePoweUP)
         {
             PowerUP();
+            _audio.Play();
+
         }
         else if (_useMelee)
         {
@@ -162,6 +167,7 @@ public class Turret : MonoBehaviour
             if (_fireCountdown <= 0f)
             {
                 MeleeAttack();
+                _audio.Play();
                 _fireCountdown = 1f / _fireRate;
             }
             _fireCountdown -= Time.deltaTime;
@@ -171,6 +177,7 @@ public class Turret : MonoBehaviour
             if (_fireCountdown <= 0f)
             {
                 Shoot();
+                _audio.Play();
                 _fireCountdown = 1f / _fireRate;
                ReturnFireRate();
             }
@@ -189,7 +196,6 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
-        _audio.Play();
 
         GameObject bulletGO = (GameObject)Instantiate(_bulletTemplate, _firePoint.position, _firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
@@ -208,6 +214,7 @@ public class Turret : MonoBehaviour
             _lineRenderer.enabled = true;
             _impactEffect.Play();
             _impactLight.enabled = true;
+            _audio.Play();
         }
 
         _lineRenderer.SetPosition(0, _firePoint.position);

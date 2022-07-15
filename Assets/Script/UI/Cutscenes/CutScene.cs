@@ -17,6 +17,7 @@ public class CutScene : MonoBehaviour
             if (_sliderIndex == _slides[_sliderIndex].SpriteNumber)
                 _sliderIndex++ ;
 
+
         if (_sliderIndex != _slides.Length)
         {
 
