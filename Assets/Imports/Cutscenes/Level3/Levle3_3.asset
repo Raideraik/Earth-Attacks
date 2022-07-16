@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Levle3_3
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: f2b963977967c1747afa66de48c264e4, type: 3}
-  _text: "\u043D\u043E \u0421\u0435\u0440..."
+  _text: "\u041D\u043E, \u0421\u0435\u0440..."
   _spriteNumber: 2

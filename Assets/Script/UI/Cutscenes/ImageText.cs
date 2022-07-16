@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ImageText : ScriptableObject
 {
     [SerializeField] private Sprite _sprite;
+    [TextArea]
     [SerializeField] private string _text;
     [SerializeField] private int _spriteNumber;
 

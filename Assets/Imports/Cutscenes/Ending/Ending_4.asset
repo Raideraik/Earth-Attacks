@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: f2b963977967c1747afa66de48c264e4, type: 3}
   _text: "\u0427\u0442\u043E \u0438\u043D\u043E\u0433\u0434\u0430 \u0441\u0442\u043E\u0438\u0442
-    \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0441\u044F"
+    \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0441\u044F..."
   _spriteNumber: 3

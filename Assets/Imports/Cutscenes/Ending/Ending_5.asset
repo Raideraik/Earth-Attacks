@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Ending_5
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 8972afbb94d2cab42935bbbbef2680b5, type: 3}
-  _text: "\u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C"
+  _text: "\u041F\u043E\u0434\u0443\u043C\u0430\u0442\u044C..."
   _spriteNumber: 4

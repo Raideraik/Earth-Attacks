@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SceneOP7
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: a21f6279d7611fe4b8cc7bbcde7d9587, type: 3}
-  _text: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0438\u0442\u044C \u0438\u0445."
+  _text: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0438\u0442\u044C \u0438\u0445!"
   _spriteNumber: 6

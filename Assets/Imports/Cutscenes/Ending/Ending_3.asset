@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ending_3
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: d4494c66327374042a9b3674a56d46ad, type: 3}
-  _text: "\u043C\u043E\u0436\u0435\u0442 \u044D\u0442\u0430 \u0438\u0441\u0442\u043E\u0440\u0438\u044F
+  _text: "\u041C\u043E\u0436\u0435\u0442 \u044D\u0442\u0430 \u0438\u0441\u0442\u043E\u0440\u0438\u044F
     \u043F\u043E\u0441\u043B\u0443\u0436\u0438\u0442 \u043A\u043E\u043C\u0443-\u0442\u043E
-    \u0443\u0440\u043E\u043A\u043E\u043C"
+    \u0443\u0440\u043E\u043A\u043E\u043C..."
   _spriteNumber: 2
